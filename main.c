@@ -2,6 +2,7 @@
 #include <string.h>
 #include "ctype.h"
 //golf
+//hola comentario prueb
 void main_menu();
 char* roman(char* );
 char Factoresprimos(int );
