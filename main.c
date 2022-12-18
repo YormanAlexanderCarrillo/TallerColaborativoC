@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "ctype.h"
-//golf
+//hola como estas 
+
 void main_menu();
 char* roman(char* );
 char Factoresprimos(int );
