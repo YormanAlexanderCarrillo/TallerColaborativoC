@@ -1,28 +1,25 @@
 #include <stdio.h>
 #include <string.h>
 #include "ctype.h"
-
 void main_menu();
 
-char *roman(char *);
-
-char factoresprimos(int);
-
+char* roman(char* );
+char* Factoresprimos(int,char[]);
 void deleteSpaces(char chain[100]);
-
-char egolatras(int);
-
 int numeroMagico(int);
-
-void *Fecha(char *);
-
+int ProductoPunto(int , int);
+char egolatras(int);
+int numeroMagico(int);
+void Fecha(char *);
 int ProductoPunto(int, int);
-
 void magicSquares(int);
 
 
 int main() {
     main_menu();
+    printf("ghcghchg");
+    char* response = Factoresprimos(10,"");
+    printf("%s", response);
     return 0;
 }
 
@@ -31,6 +28,37 @@ char *roman(char *romanChain) {
     printf("procesar %s \n", &romanChain);
     getchar();
     return romanChain;
+}
+
+char* Factoresprimos(int number, char* value){
+    if(number%2 == 0){
+        printf("fo");
+        value = strcat(value, " 2");
+        printf(value);
+        //value = ("%d,%d",value,"2");
+        return Factoresprimos(number/2,value);
+    }
+    if(number%3 == 0){
+        value = strcat(value, " 3");
+        //value = ("%d,%d",value,"3");
+        return Factoresprimos(number/3,value);
+    }
+    if(number%5 == 0){
+        value = strcat(value, " 5");
+        //value = ("%d,%d",value,"5");
+        return Factoresprimos(number/5,value);
+    }
+    if(number%7 == 0){
+        value = strcat(value, " 7");
+        //value = ("%d,%d",value,"7");
+        return Factoresprimos(number/7,value);
+    }
+    //if(number != 1){
+      //  value = strcat(value, number);
+        //value = ("%d,%d",value,number);
+        //return Factoresprimos(number/number,value);
+    //}
+    return value;
 }
 
 void deleteSpaces(char chain[100]) {
@@ -47,7 +75,8 @@ void deleteSpaces(char chain[100]) {
     printf("la cadena sin espacios es: %s \n", chainNoSpaces);
 }
 
-void *Fecha(char *date) {
+
+void Fecha(char *date) {
 
 
 }
