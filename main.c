@@ -18,13 +18,14 @@ void *Fecha(char *);
 
 int ProductoPunto(int, int);
 
-void magicsquares(int);
+void magicSquares(int);
 
 
 int main() {
     main_menu();
     return 0;
 }
+
 
 char *roman(char *romanChain) {
     printf("procesar %s \n", &romanChain);
@@ -51,14 +52,9 @@ void *Fecha(char *date) {
 
 }
 
-#define nums 100
-int a[nums][nums];
-
-
-
 
 void main_menu() {
-    int opcion;
+    int option;
     char *menu = "--------------Menu principal---------------\n"
                  "1. Romanos \n"
                  "2. Primos\n"
@@ -74,9 +70,9 @@ void main_menu() {
     do {
         printf("%s", menu);
         printf("Ingrese una opcion: ");
-        scanf("%i", &opcion);
+        scanf("%i", &option);
 
-        switch (opcion) {
+        switch (option) {
             case 1:
                 printf("Ingrese el numero Romano");
                 char *romano;
@@ -88,7 +84,7 @@ void main_menu() {
                 break;
             case 3:
                 fflush(stdin);
-                printf("ingrese la cadena de texto\n");
+                printf("Ingrese la cadena de texto\n");
                 char chains[100];
                 fflush(stdin);
                 fgets(chains, 100, stdin);
@@ -113,11 +109,10 @@ void main_menu() {
                 printf("case 8\n");
                 break;
             case 9:
-                printf("Ingrese un numero: \n");
-
+                printf("Ingrese un numero impar: \n");
                 break;
         }
-    } while (opcion != 0);
+    } while (option != 0);
 
 }
 
