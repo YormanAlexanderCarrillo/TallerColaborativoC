@@ -2,25 +2,29 @@
 #include <string.h>
 #include "ctype.h"
 void main_menu();
+
 char* roman(char* );
 char* Factoresprimos(int,char[]);
-char BorrarEspacion(char );
-char Egolatras(int );
+void deleteSpaces(char chain[100]);
 int numeroMagico(int);
-char Fecha(char);
 int ProductoPunto(int , int);
+char egolatras(int);
+int numeroMagico(int);
+void Fecha(char *);
+int ProductoPunto(int, int);
+void magicSquares(int);
 
-void aux_roman(char*);
 
 int main() {
-    //main_menu();
+    main_menu();
     printf("ghcghchg");
     char* response = Factoresprimos(10,"");
     printf("%s", response);
     return 0;
 }
 
-char* roman(char* romanChain){
+
+char *roman(char *romanChain) {
     printf("procesar %s \n", &romanChain);
     getchar();
     return romanChain;
@@ -57,9 +61,29 @@ char* Factoresprimos(int number, char* value){
     return value;
 }
 
+void deleteSpaces(char chain[100]) {
+    char chainNoSpaces[100];
+    int i = 0;
+    int j = 0;
+    while (chain[i] != '\0') {
+        if (chain[i] != ' ') {
+            chainNoSpaces[j] = chain[i];
+            j++;
+        }
+        i++;
+    }
+    printf("la cadena sin espacios es: %s \n", chainNoSpaces);
+}
 
-void main_menu(){
-    int opcion;
+
+void Fecha(char *date) {
+
+
+}
+
+
+void main_menu() {
+    int option;
     char *menu = "--------------Menu principal---------------\n"
                  "1. Romanos \n"
                  "2. Primos\n"
@@ -72,23 +96,28 @@ void main_menu(){
                  "9. Matriz Magica\n"
                  "0. Salir\n";
 
-    do{
+    do {
         printf("%s", menu);
         printf("Ingrese una opcion: ");
-        scanf("%i", &opcion);
+        scanf("%i", &option);
 
-        switch (opcion) {
+        switch (option) {
             case 1:
                 printf("Ingrese el numero Romano");
-                char* romano;
-                scanf("%s", &romano );
+                char *romano;
+                scanf("%s", &romano);
                 roman(romano);
                 break;
             case 2:
-                printf("case 2\n");
+                printf("case 3\n");
                 break;
             case 3:
-                printf("case 3\n");
+                fflush(stdin);
+                printf("Ingrese la cadena de texto\n");
+                char chains[100];
+                fflush(stdin);
+                fgets(chains, 100, stdin);
+                deleteSpaces(chains);
                 break;
             case 4:
                 printf("case 4\n");
@@ -97,7 +126,10 @@ void main_menu(){
                 printf("case 5\n");
                 break;
             case 6:
-                printf("case 6\n");
+                printf("Ingrese la fecha");
+                char * date;
+                scanf("%s", &date);
+                Fecha(date);
                 break;
             case 7:
                 printf("case 7\n");
@@ -106,10 +138,10 @@ void main_menu(){
                 printf("case 8\n");
                 break;
             case 9:
-                printf("case 9\n");
+                printf("Ingrese un numero impar: \n");
                 break;
         }
-    }while(opcion != 0);
+    } while (option != 0);
 
 }
 
