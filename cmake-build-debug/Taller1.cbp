@@ -76,6 +76,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/nicolascaceres/Desktop/TallerColaborativoC/Factore_Primo.c">
+			<Option target="Taller1"/>
+		</Unit>
 		<Unit filename="/Users/nicolascaceres/Desktop/TallerColaborativoC/main.c">
 			<Option target="Taller1"/>
 		</Unit>

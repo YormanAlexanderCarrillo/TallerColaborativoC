@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Taller1.dir/Factore_Primo.c.o"
+  "CMakeFiles/Taller1.dir/Factore_Primo.c.o.d"
   "CMakeFiles/Taller1.dir/main.c.o"
   "CMakeFiles/Taller1.dir/main.c.o.d"
   "Taller1"

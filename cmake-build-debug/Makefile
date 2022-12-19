@@ -129,6 +129,30 @@ Taller1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Taller1.dir/build.make CMakeFiles/Taller1.dir/build
 .PHONY : Taller1/fast
 
+Factore_Primo.o: Factore_Primo.c.o
+.PHONY : Factore_Primo.o
+
+# target to build an object file
+Factore_Primo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Taller1.dir/build.make CMakeFiles/Taller1.dir/Factore_Primo.c.o
+.PHONY : Factore_Primo.c.o
+
+Factore_Primo.i: Factore_Primo.c.i
+.PHONY : Factore_Primo.i
+
+# target to preprocess a source file
+Factore_Primo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Taller1.dir/build.make CMakeFiles/Taller1.dir/Factore_Primo.c.i
+.PHONY : Factore_Primo.c.i
+
+Factore_Primo.s: Factore_Primo.c.s
+.PHONY : Factore_Primo.s
+
+# target to generate assembly for a file
+Factore_Primo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Taller1.dir/build.make CMakeFiles/Taller1.dir/Factore_Primo.c.s
+.PHONY : Factore_Primo.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Taller1"
+	@echo "... Factore_Primo.o"
+	@echo "... Factore_Primo.i"
+	@echo "... Factore_Primo.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

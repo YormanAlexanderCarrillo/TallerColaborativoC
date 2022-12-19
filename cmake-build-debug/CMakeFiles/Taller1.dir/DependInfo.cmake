@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/nicolascaceres/Desktop/TallerColaborativoC/Factore_Primo.c" "CMakeFiles/Taller1.dir/Factore_Primo.c.o" "gcc" "CMakeFiles/Taller1.dir/Factore_Primo.c.o.d"
   "/Users/nicolascaceres/Desktop/TallerColaborativoC/main.c" "CMakeFiles/Taller1.dir/main.c.o" "gcc" "CMakeFiles/Taller1.dir/main.c.o.d"
   )
 
