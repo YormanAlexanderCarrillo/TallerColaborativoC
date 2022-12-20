@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include "ctype.h"
-
 void main_menu();
 
-char *roman(char *);
+char* roman(char* );
 char* Factoresprimos(int);
 void deleteSpaces(char chain[100]);
 char egolatras(int);
@@ -16,9 +15,12 @@ void magicSquares(int);
 
 int main() {
     main_menu();
+    //char* response = Factoresprimos(10,"");
+    //printf("%s", response);
     Factoresprimos(100);
     return 0;
 }
+
 
 char *roman(char *romanChain) {
     printf("procesar %s \n", &romanChain);
@@ -26,15 +28,16 @@ char *roman(char *romanChain) {
     return romanChain;
 }
 
-
-char *Factoresprimos(int number) {
-    int i_factores = 0;
+char* Factoresprimos(int number){
+    int i_factores=0;
     int factores[1000];
-    int i = 2;
-    while (i <= number) {
-        if ((number % i) == 0) {
-            factores[i_factores] = i;
-            number = number / i;
+    int i=2;
+    while(i<=number)
+    {
+        if((number%i)==0)
+        {
+            factores[i_factores]=i;
+            number=number/i;
             i_factores++;
             continue;
         }
@@ -42,8 +45,9 @@ char *Factoresprimos(int number) {
     }
 
 /* Rutina para imprimir */
-    i = 0;
-    while (i < i_factores) {
+    i=0;
+    while(i<i_factores)
+    {
         printf(" %d ", factores[i]);
         i++;
 
@@ -51,8 +55,6 @@ char *Factoresprimos(int number) {
     return factores;
 }
 
-
-// metodo para elinimar los espacios entre las palabras ingresadas por teclado
 void deleteSpaces(char chain[100]) {
     char chainNoSpaces[100];
     int i = 0;
@@ -142,9 +144,6 @@ void date(int day, int mount, int year) {
 }
 
 
-
-
-// metodo para mostrar el menu
 void main_menu() {
     int option;
     char *menu = "--------------Menu principal---------------\n"
@@ -172,10 +171,9 @@ void main_menu() {
                 roman(romano);
                 break;
             case 2:
-                printf("case 3\n");
+                printf("case 2\n");
                 break;
             case 3:
-                fflush(stdin);
                 printf("Ingrese la cadena de texto\n");
                 char chains[100];
                 fflush(stdin);
@@ -219,5 +217,6 @@ void main_menu() {
                 break;
         }
     } while (option != 0);
+
 }
 

@@ -563,11 +563,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-1ae328a998a36389e022.json
-			"value" : "C:/Program Files/JetBrains/CLion 2022.3/bin/ninja/win/ninja.exe"
-========
 			"value" : "/usr/bin/make"
->>>>>>>> 9a5080b5b8ba9740e512cbeb0ca22beba29a6ac2:cmake-build-debug/.cmake/api/v1/reply/cache-v2-64ab1cbf8d91092c9c9c.json
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",

@@ -83,10 +83,6 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/Users/nicolascaceres/Desktop/TallerCola
 //Path to a program.
 CMAKE_INSTALL_NAME_TOOL:FILEPATH=/usr/bin/install_name_tool
 
-
-//make program
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/JetBrains/CLion 2022.3/bin/ninja/win/ninja.exe
-
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
 
@@ -95,7 +91,6 @@ CMAKE_LINKER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/Xcod
 
 //Path to a program.
 CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
->>>>>>> 9a5080b5b8ba9740e512cbeb0ca22beba29a6ac2
 
 //Flags used by the linker during the creation of modules during
 // all build types.
