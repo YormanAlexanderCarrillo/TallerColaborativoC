@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Taller1.exe"
-		},
-		{
-			"path" : "Taller1.pdb"
+			"path" : "Taller1"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +35,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fdiagnostics-color=always"
+					"fragment" : "-g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -fcolor-diagnostics"
 				},
 				{
 					"fragment" : "-std=gnu11"
@@ -71,16 +68,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "Taller1",
-	"nameOnDisk" : "Taller1.exe",
+	"nameOnDisk" : "Taller1",
 	"paths" : 
 	{
 		"build" : ".",

@@ -4,7 +4,7 @@
 void main_menu();
 
 char* roman(char* );
-char* Factoresprimos(int,char[]);
+char* Factoresprimos(int);
 void deleteSpaces(char chain[100]);
 int numeroMagico(int);
 int ProductoPunto(int , int);
@@ -16,10 +16,10 @@ void magicSquares(int);
 
 
 int main() {
-    main_menu();
-    printf("ghcghchg");
-    char* response = Factoresprimos(10,"");
-    printf("%s", response);
+    //main_menu();
+    //char* response = Factoresprimos(10,"");
+    //printf("%s", response);
+    Factoresprimos(100);
     return 0;
 }
 
@@ -30,35 +30,31 @@ char *roman(char *romanChain) {
     return romanChain;
 }
 
-char* Factoresprimos(int number, char* value){
-    if(number%2 == 0){
-        printf("fo");
-        value = strcat(value, " 2");
-        printf(value);
-        //value = ("%d,%d",value,"2");
-        return Factoresprimos(number/2,value);
+char* Factoresprimos(int number){
+    int i_factores=0;
+    int factores[1000];
+    int i=2;
+    while(i<=number)
+    {
+        if((number%i)==0)
+        {
+            factores[i_factores]=i;
+            number=number/i;
+            i_factores++;
+            continue;
+        }
+        i++;
     }
-    if(number%3 == 0){
-        value = strcat(value, " 3");
-        //value = ("%d,%d",value,"3");
-        return Factoresprimos(number/3,value);
+
+/* Rutina para imprimir */
+    i=0;
+    while(i<i_factores)
+    {
+        printf(" %d ", factores[i]);
+        i++;
+
     }
-    if(number%5 == 0){
-        value = strcat(value, " 5");
-        //value = ("%d,%d",value,"5");
-        return Factoresprimos(number/5,value);
-    }
-    if(number%7 == 0){
-        value = strcat(value, " 7");
-        //value = ("%d,%d",value,"7");
-        return Factoresprimos(number/7,value);
-    }
-    //if(number != 1){
-      //  value = strcat(value, number);
-        //value = ("%d,%d",value,number);
-        //return Factoresprimos(number/number,value);
-    //}
-    return value;
+    return factores;
 }
 
 void deleteSpaces(char chain[100]) {
