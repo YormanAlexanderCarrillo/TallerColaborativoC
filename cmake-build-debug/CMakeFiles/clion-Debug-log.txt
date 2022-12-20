@@ -1,4 +1,7 @@
+
 "C:\Program Files\JetBrains\CLion 2022.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3/bin/ninja/win/ninja.exe" -G Ninja -S "C:\Users\PERSONAL-COMPUTER\Documents\1 ALEXANDER UPTC\6 TO SEMESTRE\PROGRAMACION III\Repositorios\C\Taller1" -B "C:\Users\PERSONAL-COMPUTER\Documents\1 ALEXANDER UPTC\6 TO SEMESTRE\PROGRAMACION III\Repositorios\C\Taller1\cmake-build-debug"
+
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/nicolascaceres/Desktop/TallerColaborativoC -B /Users/nicolascaceres/Desktop/TallerColaborativoC/cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/PERSONAL-COMPUTER/Documents/1 ALEXANDER UPTC/6 TO SEMESTRE/PROGRAMACION III/Repositorios/C/Taller1/cmake-build-debug
+-- Build files have been written to: /Users/nicolascaceres/Desktop/TallerColaborativoC/cmake-build-debug

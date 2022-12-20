@@ -5,34 +5,20 @@
 void main_menu();
 
 char *roman(char *);
-
-char *Factoresprimos(int, char[]);
-
+char* Factoresprimos(int);
 void deleteSpaces(char chain[100]);
-
-int numeroMagico(int);
-
-int ProductoPunto(int, int);
-
 char egolatras(int);
-
 int numeroMagico(int);
-
-void Fecha(int day, int mount, int year);
-
+void date(int day, int mount, int year);
 int ProductoPunto(int, int);
-
 void magicSquares(int);
 
 
 int main() {
     main_menu();
-    printf("ghcghchg");
-    char *response = Factoresprimos(10, "");
-    printf("%s", response);
+    Factoresprimos(100);
     return 0;
 }
-
 
 char *roman(char *romanChain) {
     printf("procesar %s \n", &romanChain);
@@ -40,37 +26,33 @@ char *roman(char *romanChain) {
     return romanChain;
 }
 
-char *Factoresprimos(int number, char *value) {
-    if (number % 2 == 0) {
-        printf("fo");
-        value = strcat(value, " 2");
-        printf(value);
-        //value = ("%d,%d",value,"2");
-        return Factoresprimos(number / 2, value);
+
+char *Factoresprimos(int number) {
+    int i_factores = 0;
+    int factores[1000];
+    int i = 2;
+    while (i <= number) {
+        if ((number % i) == 0) {
+            factores[i_factores] = i;
+            number = number / i;
+            i_factores++;
+            continue;
+        }
+        i++;
     }
-    if (number % 3 == 0) {
-        value = strcat(value, " 3");
-        //value = ("%d,%d",value,"3");
-        return Factoresprimos(number / 3, value);
+
+/* Rutina para imprimir */
+    i = 0;
+    while (i < i_factores) {
+        printf(" %d ", factores[i]);
+        i++;
+
     }
-    if (number % 5 == 0) {
-        value = strcat(value, " 5");
-        //value = ("%d,%d",value,"5");
-        return Factoresprimos(number / 5, value);
-    }
-    if (number % 7 == 0) {
-        value = strcat(value, " 7");
-        //value = ("%d,%d",value,"7");
-        return Factoresprimos(number / 7, value);
-    }
-    //if(number != 1){
-    //  value = strcat(value, number);
-    //value = ("%d,%d",value,number);
-    //return Factoresprimos(number/number,value);
-    //}
-    return value;
+    return factores;
 }
 
+
+// metodo para elinimar los espacios entre las palabras ingresadas por teclado
 void deleteSpaces(char chain[100]) {
     char chainNoSpaces[100];
     int i = 0;
@@ -85,75 +67,74 @@ void deleteSpaces(char chain[100]) {
     printf("la cadena sin espacios es: %s \n", chainNoSpaces);
 }
 
-
-void Fecha(int day, int mount, int year) {
+//metodo para dar formato a la fecha
+void date(int day, int mount, int year) {
     char messaje[27] = "Dia no valido para este mes";
-
     if (day >= 1 && day <= 31 && mount <= 12 && year >= 1000 && year <= 5000) {
-            switch (mount) {
-                case 1:
-                    printf("%d de Enero de %d \n", day, year);
+        switch (mount) {
+            case 1:
+                printf("%d de Enero de %d \n", day, year);
+                break;
+            case 2:
+                if (year % 4 == 0 && year % 100 != 0 && day == 29) {
+                    printf("Anio bisiesto\n");
+                    printf("%d de Febrero de %d \n", day, year);
                     break;
-                case 2:
-                    if (year % 4 == 0 && year % 100 != 0 && day == 29) {
-                        printf("Anio bisiesto\n");
-                        printf("%d de Febrero de %d \n", day, year);
-                        break;
-                    }else if(day<=28) {
-                        printf("%d de Febrero de %d \n", day, year);
-                    }else if(day >=29){
-                        printf("%s o anio\n", messaje);
-                    }
-                    break;
-                case 3:
-                    printf("%d de Marzo de %d \n", day, year);
-                    break;
-                case 4:
-                    if (day <=30){
-                        printf("%d de Abril de %d \n", day, year);
-                    }else{
-                        printf("%s\n", messaje);
-                    }
-                    break;
-                case 5:
-                    printf("%d de Mayo de %d \n", day, year);
-                    break;
-                case 6:
-                    if (day <=30){
-                        printf("%d de Junio de %d \n", day, year);
-                    }else{
-                        printf("%s\n", messaje);
-                    }
-                    break;
-                case 7:
-                    printf("%d de Julio de %d \n", day, year);
-                    break;
-                case 8:
-                    printf("%d de Agosto de %d \n", day, year);
-                    break;
-                case 9:
-                    if (day <=30){
-                        printf("%d de Septiembre de %d \n", day, year);
-                    }else{
-                        printf("%s\n", messaje);
-                    }
-                    break;
-                case 10:
-                    printf("%d de Octubre de %d \n", day, year);
-                    break;
-                case 11:
-                    if(day <=30){
-                        printf("%d de Noviembre de %d \n", day, year);
-                    }else{
-                        printf("%s\n", messaje);
-                    }
+                } else if (day <= 28) {
+                    printf("%d de Febrero de %d \n", day, year);
+                } else if (day >= 29) {
+                    printf("%s o anio\n", messaje);
+                }
+                break;
+            case 3:
+                printf("%d de Marzo de %d \n", day, year);
+                break;
+            case 4:
+                if (day <= 30) {
+                    printf("%d de Abril de %d \n", day, year);
+                } else {
+                    printf("%s\n", messaje);
+                }
+                break;
+            case 5:
+                printf("%d de Mayo de %d \n", day, year);
+                break;
+            case 6:
+                if (day <= 30) {
+                    printf("%d de Junio de %d \n", day, year);
+                } else {
+                    printf("%s\n", messaje);
+                }
+                break;
+            case 7:
+                printf("%d de Julio de %d \n", day, year);
+                break;
+            case 8:
+                printf("%d de Agosto de %d \n", day, year);
+                break;
+            case 9:
+                if (day <= 30) {
+                    printf("%d de Septiembre de %d \n", day, year);
+                } else {
+                    printf("%s\n", messaje);
+                }
+                break;
+            case 10:
+                printf("%d de Octubre de %d \n", day, year);
+                break;
+            case 11:
+                if (day <= 30) {
+                    printf("%d de Noviembre de %d \n", day, year);
+                } else {
+                    printf("%s\n", messaje);
+                }
 
-                    break;
-                case 12:
-                    printf("%d de Diciembre de %d \n", day, year);
-                    break;
+                break;
+            case 12:
+                printf("%d de Diciembre de %d \n", day, year);
+                break;
 
-            }
+        }
     } else {
         printf("Fecha invalida\n");
     }
@@ -161,6 +142,9 @@ void Fecha(int day, int mount, int year) {
 }
 
 
+
+
+// metodo para mostrar el menu
 void main_menu() {
     int option;
     char *menu = "--------------Menu principal---------------\n"
@@ -221,7 +205,7 @@ void main_menu() {
                 scanf("%d", &year);
                 fflush(stdin);
                 printf("la fecha ingresada es: %d / %d / %d \n ", day, mount, year);
-                Fecha(day, mount, year);
+                date(day, mount, year);
                 getchar();
                 break;
             case 7:
@@ -235,6 +219,5 @@ void main_menu() {
                 break;
         }
     } while (option != 0);
-
 }
 
