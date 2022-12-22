@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include "ctype.h"
+#define nums 100
+
 void main_menu();
 
-char* roman(char* );
-char* Factoresprimos(int);
+char *roman(char *);
+char *Factoresprimos(int);
 void deleteSpaces(char chain[100]);
 char egolatras(int);
 int numeroMagico(int);
@@ -17,10 +19,9 @@ int main() {
     main_menu();
     //char* response = Factoresprimos(10,"");
     //printf("%s", response);
-    Factoresprimos(100);
+    // Factoresprimos(100);
     return 0;
 }
-
 
 char *roman(char *romanChain) {
     printf("procesar %s \n", &romanChain);
@@ -28,16 +29,14 @@ char *roman(char *romanChain) {
     return romanChain;
 }
 
-char* Factoresprimos(int number){
-    int i_factores=0;
+char *Factoresprimos(int number) {
+    int i_factores = 0;
     int factores[1000];
-    int i=2;
-    while(i<=number)
-    {
-        if((number%i)==0)
-        {
-            factores[i_factores]=i;
-            number=number/i;
+    int i = 2;
+    while (i <= number) {
+        if ((number % i) == 0) {
+            factores[i_factores] = i;
+            number = number / i;
             i_factores++;
             continue;
         }
@@ -45,12 +44,10 @@ char* Factoresprimos(int number){
     }
 
 /* Rutina para imprimir */
-    i=0;
-    while(i<i_factores)
-    {
+    i = 0;
+    while (i < i_factores) {
         printf(" %d ", factores[i]);
         i++;
-
     }
     return factores;
 }
@@ -140,6 +137,52 @@ void date(int day, int mount, int year) {
     } else {
         printf("Fecha invalida\n");
     }
+}
+
+void magicSquares(int number) {
+    int a[nums][nums];
+    if (number % 2 == 0) {
+        return;
+    } else {
+        for (int i = 1; i <= number; i++) {
+            for (int j = 1; j <= number; j++) {
+                a[i][j] = 0;
+            }
+        }
+    }
+
+    int i = 1;
+    int j = (1 + number) / 2;
+    a[i][j] = 1;
+    for (int value = 2; value <= number * number; value++) {
+        i = i - 1;
+        j = j + 1;
+        if (i < 1 && j > number) {
+            i = i + 2;
+            j = j - 1;
+        } else {
+            if (i < 1) {
+                i = number;
+            }
+            if (j > number) {
+                j = 1;
+            }
+        }
+        if (a[i][j] == 0) {
+            a[i][j] = value;
+        } else {
+            i += 2;
+            j -= 1;
+            a[i][j] = value;
+        }
+    }
+
+    for (int i = 1; i <= number; i++) {
+        for (int j = 1; j <= number; j++) {
+            printf("%d  ", a[i][j]);
+        }
+        printf("\n");
+    }
 
 }
 
@@ -214,7 +257,14 @@ void main_menu() {
                 break;
             case 9:
                 printf("Ingrese un numero impar: \n");
+                int n;
+                scanf("%d", &n);
+                fflush(stdin);
+                magicSquares(n);
+                getchar();
                 break;
+            default:
+                printf("Opcion no valida \n");
         }
     } while (option != 0);
 
