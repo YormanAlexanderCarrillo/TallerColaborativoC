@@ -306,6 +306,8 @@ void main_menu() {
                 scanf("%d", &number);
                 fflush(stdin);
                 Factoresprimos(number);
+                fflush(stdin);
+                getchar();
                 break;
             case 3:
                 printf("Ingrese la cadena de texto\n");
@@ -359,6 +361,8 @@ void main_menu() {
                 scanf("%d", &m2c);
                 fflush(stdin);
                 multiplicationMatr(m1f,m1c,m2f,m2c);
+                fflush(stdin);
+                getchar();
                 break;
             case 9:
                 printf("Ingrese un numero impar: \n");
