@@ -27,57 +27,59 @@ char *roman(char *romanChain) {
     return romanChain;
 }
 
+
 void Factoresprimos(int number) {
-    int i;
-    int potencia;
-    int factores[100];  // Array para almacenar los factores primos
-    int exponentes[100];  // Array para almacenar los exponentes de los factores primos
-    int num_factors = 0;  // Número de factores primos encontrados hasta ahora
+        int i;
+        int exponent;
+        int num_factors = 0;
+        int factors[100];
+        int exp[100];
 
-    // For para buscar el numero de factores primos del numero ingresado
+
     for (i = 2; i <= sqrt(number); i++) {
-        potencia = 0;
-        while (number % i == 0) {
-            potencia++;
-            number /= i;
-        }
-        if (potencia > 0) {
-            factores[num_factors] = i;
-            exponentes[num_factors] = potencia;
-            num_factors++;
-        }
-    }
-
-    // If n is a prime number greater than 2
-    if (number > 2) {
-        factores[num_factors] = number;
-        exponentes[num_factors] = 1;
-        num_factors++;
-    }
-
-    // Ordena los factores primos de mayor a menor
-    for (i = 0; i < num_factors - 1; i++) {
-        for (int j = i + 1; j < num_factors; j++) {
-            if (factores[i] < factores[j]) {
-                int temp = factores[i];
-                factores[i] = factores[j];
-                factores[j] = temp;
-                temp = exponentes[i];
-                exponentes[i] = exponentes[j];
-                exponentes[j] = temp;
+            exponent = 0;
+            while (number % i == 0) {
+                exponent++;
+                number /= i;
+            }
+            if (exponent > 0) {
+                factors[num_factors] = i;
+                exp[num_factors] = exponent;
+                num_factors++;
             }
         }
+
+
+        if (number > 2) {
+            factors[num_factors] = number;
+            exp[num_factors] = 1;
+            num_factors++;
+        }
+
+
+        for (i = 0; i < num_factors - 1; i++) {
+            for (int j = i + 1; j < num_factors; j++) {
+                if (factors[i] < factors[j]) {
+                    int temp = factors[i];
+                    factors[i] = factors[j];
+                    factors[j] = temp;
+                    temp = exp[i];
+                    exp[i] = exp[j];
+                    exp[j] = temp;
+                }
+            }
+        }
+
+
+        for (i = 0; i < num_factors; i++) {
+            printf("%d^%d \n", factors[i], exp[i]);
+        }
     }
 
-    // Imprime la factorización de primos en formato potencia
-    for (i = 0; i < num_factors; i++) {
-        printf("%d^%d \n", factores[i], exponentes[i]);
-    }
-    printf("");
-}
 
 
-void deleteSpaces(char chain[100]) {
+
+    void deleteSpaces(char chain[100]) {
     char chainNoSpaces[100];
     int i = 0;
     int j = 0;
