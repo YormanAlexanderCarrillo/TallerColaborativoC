@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
 #include "ctype.h"
 #define nums 100
 
@@ -14,6 +15,7 @@ int numeroMagico(int);
 void date(int day, int mount, int year);
 int ProductoPunto(int, int);
 void magicSquares(int);
+int multiplicationMatr();
 
 
 int main() {
@@ -32,8 +34,8 @@ void Factoresprimos(int number) {
         int i;
         int exponent;
         int num_factors = 0;
-        int factors[100];
-        int exp[100];
+        int factors[1000];
+        int exp[1000];
 
 
     for (i = 2; i <= sqrt(number); i++) {
@@ -76,7 +78,65 @@ void Factoresprimos(int number) {
         }
     }
 
+int multiplicationMatr(int m1f, int m1c, int m2f, int m2c) {
 
+    int a[20][20], b[20][20], c[20][20],seg, hel;
+
+    if (m1f == m2c) {
+
+
+        for (int i = 0; i < m1f; ++i) {
+            for (int j = 0; j < m1c; ++j) {
+                a[i][j] = rand() % 9 + 1;
+            }
+        }
+
+        for (int i = 0; i < m2f; ++i) {
+            for (int j = 0; j < m2c; ++j) {
+                b[i][j] = rand() % 9 + 1;
+            }
+        }
+
+        for (int i = 0; i < m1f; ++i) {
+            for (int j = 0; j < m1c; ++j) {
+                for (seg = 0, hel = 0; seg < m1c; ++seg) {
+                    hel = hel + a[i][seg] * b[seg][j];
+                }
+                c[i][j] = hel;
+            }
+        }
+
+        printf("\nMatriz 1ª");
+        for (int i = 0; i < m1f; ++i) {
+            printf("\n");
+            for (int j = 0; j < m1c; ++j) {
+                printf("\t%d", a[i][j]);
+            }
+        }
+
+        printf("\n Matriz 2ª");
+        for (int i = 0; i < m2f; ++i) {
+            printf("\n");
+            for (int j = 0; j < m2c; ++j) {
+                printf("\t%d", b[i][j]);
+            }
+        }
+
+        printf("\n Multiplicacion de matriz\n");
+        for (int i = 0; i < m1f; ++i) {
+            printf("\n");
+            for (int j = 0; j < m2c; ++j) {
+                printf("\t%d ", c[i][j]);
+            }
+        }
+    } else {
+        printf("Null\n");
+        return (int) NULL;
+
+    }
+
+    return (int) NULL;
+}
 
 
     void deleteSpaces(char chain[100]) {
@@ -216,7 +276,7 @@ void magicSquares(int number) {
 
 void main_menu() {
     int option;
-    char *menu = "--------------Menu principal---------------\n"
+    char *menu = "\n--------------Menu principal---------------\n"
                  "1. Romanos \n"
                  "2. Primos\n"
                  "3. Borrar Espacios\n"
@@ -241,7 +301,7 @@ void main_menu() {
                 roman(romano);
                 break;
             case 2:
-                printf("Ingrese el numero para sacar los factores 2\n");
+                printf("Ingrese el numero para sacar los factores \n");
                 int number;
                 scanf("%d", &number);
                 fflush(stdin);
@@ -284,7 +344,21 @@ void main_menu() {
                 printf("case 7\n");
                 break;
             case 8:
-                printf("case 8\n");
+                printf("Multiplicación de Matrices \n");
+                int m1f,m1c,m2f,m2c;
+                printf("\n Agregue el numero de filas de la matriz 1 \n");
+                scanf("%d", &m1f);
+
+                printf("Agregue el numero de columnas de la matriz 1 \n");
+                scanf("%d", &m1c);
+
+                printf("Agregue el numero de filas de la matriz 2 \n");
+                scanf("%d", &m2f);
+
+                printf("Agregue el numero de columnas de la matriz 2 \n");
+                scanf("%d", &m2c);
+                fflush(stdin);
+                multiplicationMatr(m1f,m1c,m2f,m2c);
                 break;
             case 9:
                 printf("Ingrese un numero impar: \n");
