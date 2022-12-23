@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include "ctype.h"
 #define nums 100
 
 void main_menu();
 
 char *roman(char *);
-char *Factoresprimos(int);
+void Factoresprimos(int);
 void deleteSpaces(char chain[100]);
 char egolatras(int);
 int numeroMagico(int);
@@ -17,9 +18,6 @@ void magicSquares(int);
 
 int main() {
     main_menu();
-    //char* response = Factoresprimos(10,"");
-    //printf("%s", response);
-    // Factoresprimos(100);
     return 0;
 }
 
@@ -29,28 +27,55 @@ char *roman(char *romanChain) {
     return romanChain;
 }
 
-char *Factoresprimos(int number) {
-    int i_factores = 0;
-    int factores[1000];
-    int i = 2;
-    while (i <= number) {
-        if ((number % i) == 0) {
-            factores[i_factores] = i;
-            number = number / i;
-            i_factores++;
-            continue;
+void Factoresprimos(int number) {
+    int i;
+    int potencia;
+    int factores[100];  // Array para almacenar los factores primos
+    int exponentes[100];  // Array para almacenar los exponentes de los factores primos
+    int num_factors = 0;  // Número de factores primos encontrados hasta ahora
+
+    // For para buscar el numero de factores primos del numero ingresado
+    for (i = 2; i <= sqrt(number); i++) {
+        potencia = 0;
+        while (number % i == 0) {
+            potencia++;
+            number /= i;
         }
-        i++;
+        if (potencia > 0) {
+            factores[num_factors] = i;
+            exponentes[num_factors] = potencia;
+            num_factors++;
+        }
     }
 
-/* Rutina para imprimir */
-    i = 0;
-    while (i < i_factores) {
-        printf(" %d ", factores[i]);
-        i++;
+    // If n is a prime number greater than 2
+    if (number > 2) {
+        factores[num_factors] = number;
+        exponentes[num_factors] = 1;
+        num_factors++;
     }
-    return factores;
+
+    // Ordena los factores primos de mayor a menor
+    for (i = 0; i < num_factors - 1; i++) {
+        for (int j = i + 1; j < num_factors; j++) {
+            if (factores[i] < factores[j]) {
+                int temp = factores[i];
+                factores[i] = factores[j];
+                factores[j] = temp;
+                temp = exponentes[i];
+                exponentes[i] = exponentes[j];
+                exponentes[j] = temp;
+            }
+        }
+    }
+
+    // Imprime la factorización de primos en formato potencia
+    for (i = 0; i < num_factors; i++) {
+        printf("%d^%d \n", factores[i], exponentes[i]);
+    }
+    printf("");
 }
+
 
 void deleteSpaces(char chain[100]) {
     char chainNoSpaces[100];
@@ -214,7 +239,11 @@ void main_menu() {
                 roman(romano);
                 break;
             case 2:
-                printf("case 2\n");
+                printf("Ingrese el numero para sacar los factores 2\n");
+                int number;
+                scanf("%d", &number);
+                fflush(stdin);
+                Factoresprimos(number);
                 break;
             case 3:
                 printf("Ingrese la cadena de texto\n");
