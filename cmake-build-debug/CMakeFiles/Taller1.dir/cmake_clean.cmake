@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Taller1.dir/main.c.o"
-  "CMakeFiles/Taller1.dir/main.c.o.d"
-  "Taller1"
+  "CMakeFiles/Taller1.dir/main.c.obj"
+  "CMakeFiles/Taller1.dir/main.c.obj.d"
+  "Taller1.exe"
+  "Taller1.exe.manifest"
   "Taller1.pdb"
+  "libTaller1.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

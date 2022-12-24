@@ -22,6 +22,44 @@ int main()
     main_menu();
     return 0;
 }
+
+int roman(char s[]) {
+    int rom = 0;
+    int i;
+    for (i = 0; i < strlen(s); i++) {
+        if (s[i] == 'I') {
+            if (s[i + 1] == 'V' || s[i + 1] == 'X') {
+                rom -= 1;
+            } else {
+                rom += 1;
+            }
+        } else if (s[i] == 'V') {
+            rom += 5;
+        } else if (s[i] == 'X') {
+            if (s[i + 1] == 'L' || s[i + 1] == 'C') {
+                rom -= 10;
+            } else {
+                rom += 10;
+            }
+        } else if (s[i] == 'L') {
+            rom += 50;
+        } else if (s[i] == 'C') {
+            if (s[i + 1] == 'D' || s[i + 1] == 'M') {
+                rom -= 100;
+            } else {
+                rom += 100;
+            }
+        } else if (s[i] == 'D') {
+            rom += 500;
+        } else if (s[i] == 'M') {
+            rom += 1000;
+        } else {
+            return 0;
+        }
+    }
+    return rom;
+}
+
 void numeroMagico(int numero){
     int va1;
     int va2;
@@ -117,6 +155,26 @@ void Factoresprimos(int number)
     }
 }
 
+int egolatras(int n) {
+    int numeroDigitos = floor(log10(n) + 1);
+    char cadena[numeroDigitos + 1];;
+
+    sprintf(cadena, "%d", n);
+
+    int suma = 0;
+    for (int i = 0; i < numeroDigitos; i++) {
+        int cont = cadena[i] - '0';
+
+        int elevado = pow(cont, numeroDigitos);
+        suma = suma + elevado;
+    }
+    if (suma == n) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 int multiplicationMatr(int m1f, int m1c, int m2f, int m2c)
 {
 
@@ -207,6 +265,31 @@ void deleteSpaces(char chain[100])
         i++;
     }
     printf("la cadena sin espacios es: %s \n", chainNoSpaces);
+}
+
+void productPoint(int va, int vb) {
+
+    int a[25], b[25];
+    int suma = 0;
+    //Lectura de elementos de A
+    for (int i = 0; i < va; i++) {
+        printf("valor(%d) vector 1 = ", i + 1);
+        scanf("%d", &a[i]);
+    }
+
+    //Lectura de elementos de B
+    for (int i = 0; i < vb; i++) {
+        printf("valor (%d) vector 2 = ", i + 1);
+        scanf("%d", &b[i]);
+        fflush(stdin);
+    }
+
+    suma = 0;
+    for (int i = 0; i < va; i++) {
+        suma += a[i] * b[i];
+    }
+
+    printf("El resultado es:%d", suma);
 }
 
 // metodo para dar formato a la fecha
@@ -389,7 +472,17 @@ void main_menu()
 
         switch (option)
         {
-        case 1:
+            case 1:
+                printf("Escribe el nÃºmero en romano en mayusculas\n");
+                char cad[20];
+                int decimal;
+                scanf("%s", cad);
+                decimal = roman(cad);
+                if (decimal == 0) {
+                    printf("Null\n");
+                } else {
+                    printf("%d\n", decimal);
+                }
 
             break;
         case 2:
@@ -410,8 +503,15 @@ void main_menu()
             getchar();
             break;
         case 4:
-            printf("case 4\n");
-            break;
+            printf("Numeros Egolatras\n");
+                int num = 0;
+                printf("digite el numero \n ");
+                scanf("%d", &num);
+                printf("numero :%d %s", num,
+                       egolatras(num)
+                       ? "es egolatra" : "No es egolatra\n");
+
+                break;
         case 5:
             printf("Ingrese el numero  \n");
                 int magic;
@@ -441,8 +541,23 @@ void main_menu()
             getchar();
             break;
         case 7:
-            printf("case 7\n");
-            break;
+            printf("Tamanio del vector 1: ");
+                int va, vb;
+                scanf("%d",&va);
+                printf("Tamanio del vector 2: ");
+                fflush(stdin);
+                scanf("%d",&vb);
+                if (va == vb){
+                    productPoint(va, vb
+                    );
+                }else{
+                    printf("No es posible multiplicar vectores de diferente tamanio \n");
+                }
+                fflush(stdin);
+
+                getchar();
+
+                break;
         case 8:
             printf("Multiplicación de Matrices \n");
             int m1f, m1c, m2f, m2c;
