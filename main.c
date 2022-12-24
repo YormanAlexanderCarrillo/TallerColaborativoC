@@ -15,7 +15,10 @@ int numeroMagico(int);
 void date(int day, int mount, int year);
 int ProductoPunto(int, int);
 void magicSquares(int);
-int multiplicationMatr();
+int multiplicationMatr(int, int , int , int);
+void productPoint(int, int);
+
+
 
 
 int main() {
@@ -28,7 +31,6 @@ char *roman(char *romanChain) {
     getchar();
     return romanChain;
 }
-
 
 void Factoresprimos(int number) {
         int i;
@@ -129,6 +131,7 @@ int multiplicationMatr(int m1f, int m1c, int m2f, int m2c) {
                 printf("\t%d ", c[i][j]);
             }
         }
+        printf("\n");
     } else {
         printf("Null\n");
         return (int) NULL;
@@ -138,8 +141,7 @@ int multiplicationMatr(int m1f, int m1c, int m2f, int m2c) {
     return (int) NULL;
 }
 
-
-    void deleteSpaces(char chain[100]) {
+void deleteSpaces(char chain[100]) {
     char chainNoSpaces[100];
     int i = 0;
     int j = 0;
@@ -273,6 +275,32 @@ void magicSquares(int number) {
 
 }
 
+void productPoint(int va, int vb){
+
+    int a[25],b[25];
+    int suma =0;
+    //Lectura de elementos de A
+    for( int i=0;i<va;i++){
+        printf("valor(%d) vector 1 = ", i+1);
+        scanf("%d",&a[i]);
+    }
+
+    //Lectura de elementos de B
+    for( int i=0;i<vb;i++){
+        printf("valor (%d) vector 2 = ", i+1);
+        scanf("%d",&b[i]);
+        fflush(stdin);
+    }
+
+    suma=0;
+    for(int i=0;i<va;i++){
+        suma+=a[i]*b[i];
+    }
+
+   printf("El resultado es:%d", suma);
+}
+
+
 
 void main_menu() {
     int option;
@@ -343,7 +371,19 @@ void main_menu() {
                 getchar();
                 break;
             case 7:
-                printf("case 7\n");
+                printf("Tamanio del vector 1: ");
+                int va, vb;
+                scanf("%d",&va);
+                printf("Tamanio del vector 2: ");
+                fflush(stdin);
+                scanf("%d",&vb);
+                if (va == vb){
+                    productPoint(va, vb);
+                }else{
+                    printf("No es posible multiplicar vectores de diferente tamanio \n");
+                }
+                fflush(stdin);
+                getchar();
                 break;
             case 8:
                 printf("Multiplicación de Matrices \n");
